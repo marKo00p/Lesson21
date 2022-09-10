@@ -8,7 +8,7 @@ class MatrixRecursion {
     public static void main(String[] args) {
 
         System.out.println("Result without recursion: ");
-        pathsForCell(n );
+        pathsForCell();
 
         System.out.println("Result with recursion: ");
         long start = System.nanoTime();
@@ -26,12 +26,11 @@ class MatrixRecursion {
 
     // method to count possible paths from cell [0][0] to cell [2][2] and print the result
     // without using recursion
-    static void pathsForCell(int n) {
-        int array[][] = new int[n][n];
+    static void pathsForCell() {
         long start = System.nanoTime();
 
-        for(int i =0; i < 3; i++) {
-            for(int j = 0; j < 3 ; j++){
+        for(int i =0; i < array.length; i++) {
+            for(int j = 0; j < array[i].length ; j++){
                 if ( i == 0 || j == 0) {
                     array[i][j] = 1;
                 } else {
@@ -40,7 +39,6 @@ class MatrixRecursion {
             }
         }
         System.out.println("Total time = " + (System.nanoTime() - start) / 1_000_00d);
-
 
         for(int[] a: array){
             System.out.println(Arrays.toString(a));
